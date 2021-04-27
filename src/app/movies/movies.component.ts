@@ -9,11 +9,16 @@ import {Movie, MoviesService} from '../../services/movies.service';
 export class MoviesComponent implements OnInit {
 
   movies: Movie[] = [];
-
+  displayDetails: boolean;
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
     this.movies = this.moviesService.getAllMovies();
+    this.displayDetails = false;
+  }
+
+  checkChanged(): void{
+   this.displayDetails = !this.displayDetails;
   }
 
 }
