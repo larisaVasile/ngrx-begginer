@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { BooksComponent } from './books/books.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    BooksComponent
+    BooksComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
