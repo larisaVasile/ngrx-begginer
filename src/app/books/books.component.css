@@ -1,0 +1,16 @@
+
+.book-item {
+  list-style: none;
+  border: 1px solid #9b9595;
+  margin: 20px 0;
+}
+
+.book-title {
+  font-style: italic;
+  padding-right: 5px;
+}
+
+.book-author{
+  color: #343134;
+  padding-left: 5px;
+}
