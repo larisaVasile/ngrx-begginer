@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Movie, MoviesService} from '../../services/movies.service';
+import {Store} from '@ngrx/store';
+import {getDisplayDetails} from './state/movies.reducer';
 
 @Component({
   selector: 'app-movies',
@@ -10,15 +12,21 @@ export class MoviesComponent implements OnInit {
 
   movies: Movie[] = [];
   displayDetails: boolean;
-  constructor(private moviesService: MoviesService) {}
+
+  constructor(private store: Store<any>, private moviesService: MoviesService) {}
 
   ngOnInit(): void {
     this.movies = this.moviesService.getAllMovies();
     this.displayDetails = false;
+
+    this.store.select(getDisplayDetails).subscribe(displayDetails => {
+          this.displayDetails = displayDetails;
+      }
+    );
   }
 
   checkChanged(): void{
-   this.displayDetails = !this.displayDetails;
+   this.store.dispatch({type: '[Movies] Toggle display details'});
   }
 
 }
