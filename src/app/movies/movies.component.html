@@ -4,7 +4,9 @@
 </nav>
 <h2>Movies</h2>
 <ul>
-  <li *ngFor="let movie of movies" class="movie-item"
+  <li *ngFor="let movie of movies"
+      (click)="onSelectMovie(movie)"
+      class="movie-item"
      >{{movie.title}}
     <span *ngIf="displayDetails">{{movie.type}} - {{movie.country}} </span>
   </li>
@@ -16,3 +18,5 @@
          [checked]="displayDetails">
   Display Movies Details
 </label>
+
+<div *ngIf="currentMovie">Current movie: {{currentMovie.title}}</div>
