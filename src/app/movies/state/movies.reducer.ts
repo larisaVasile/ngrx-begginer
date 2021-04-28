@@ -1,4 +1,5 @@
-import {createAction, createFeatureSelector, createReducer, createSelector, on} from '@ngrx/store';
+import {createFeatureSelector, createReducer, createSelector, on} from '@ngrx/store';
+import {toggleDisplayDetails} from './movies.actions';
 
 export interface MoviesState{
   displayDetails: boolean;
@@ -14,7 +15,7 @@ export const getDisplayDetails = createSelector(getMoviesFeatureState, state => 
 
 export const moviesReducer = createReducer(
   initialState,
-  on(createAction('[Movies] Toggle display details'), state => {
+  on(toggleDisplayDetails, state => {
     console.log('in reducer');
     return{
       ...state,
